@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Muhammad Khalid Salam – Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --slate-900: #1a2332;
+    --slate-700: #2d3f55;
+    --slate-500: #4a5e76;
+    --slate-300: #8fa3ba;
+    --slate-100: #e8eef4;
+    --slate-50:  #f4f7fa;
+    --white:     #ffffff;
+    --accent:    #2e6fa3;
+    --accent-lt: #d6e8f5;
+    --gold:      #b08d57;
+    --gold-lt:   #f5efe3;
+    --text:      #2a3545;
+    --text-muted:#5e7082;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #dce3ea;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 32px 16px;
+  }
+
+  .page {
+    width: 960px;
+    background: var(--white);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.14);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--slate-900);
+    padding: 36px 44px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(46,111,163,0.18);
+    pointer-events: none;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 280px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(176,141,87,0.12);
+    pointer-events: none;
+  }
+
+  .avatar-wrap {
+    flex-shrink: 0;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    overflow: hidden;
+    background: var(--slate-700);
+  }
+  .avatar-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .avatar-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; color: var(--slate-300); font-family: 'Lora', serif;
+  }
+
+  .header-info { flex: 1; }
+
+  .header-name {
+    font-family: 'Lora', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+  .header-title {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-top: 6px;
+  }
+
+  .header-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    margin-top: 16px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12.5px;
+    color: var(--slate-300);
+  }
+  .contact-item svg {
+    flex-shrink: 0;
+    opacity: 0.75;
+  }
+  .contact-item a { color: var(--slate-300); text-decoration: none; }
+  .contact-item a:hover { color: var(--gold); }
+
+  /* ── BODY ── */
+  .body {
+    display: flex;
+    align-items: stretch;
+  }
+
+  /* ── LEFT COLUMN ── */
+  .left {
+    width: 260px;
+    flex-shrink: 0;
+    background: var(--slate-50);
+    border-right: 1px solid var(--slate-100);
+    padding: 32px 24px 40px;
+  }
+
+  /* ── RIGHT COLUMN ── */
+  .right {
+    flex: 1;
+    padding: 32px 36px 40px;
+    min-width: 0;
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.8px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--slate-100);
+  }
+
+  .section + .section { margin-top: 26px; }
+
+  /* ── SKILL CATEGORIES ── */
+  .skill-group { margin-bottom: 18px; }
+  .skill-group:last-child { margin-bottom: 0; }
+
+  .skill-group-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--slate-700);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--slate-100);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .tag {
+    font-size: 10.5px;
+    color: var(--slate-700);
+    background: var(--white);
+    border: 1px solid var(--slate-100);
+    border-radius: 3px;
+    padding: 3px 8px;
+    line-height: 1.4;
+  }
+  .tag.accent {
+    background: var(--accent-lt);
+    border-color: #b3d4ed;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .tag.gold {
+    background: var(--gold-lt);
+    border-color: #dfd0b6;
+    color: #8a6a35;
+    font-weight: 600;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item { margin-bottom: 13px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+  }
+  .edu-school {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+  .edu-year {
+    font-size: 10.5px;
+    color: var(--slate-300);
+    margin-top: 2px;
+  }
+
+  /* ── TOOLS ── */
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  /* ── PROFESSIONAL SUMMARY ── */
+  .summary-text {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    border-left: 3px solid var(--gold);
+    padding-left: 14px;
+  }
+  .summary-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-item {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 24px;
+  }
+  .exp-item:last-child { margin-bottom: 0; }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1.5px var(--accent);
+  }
+  .exp-item.past::before { background: var(--slate-300); box-shadow: 0 0 0 1.5px var(--slate-300); }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .exp-role {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .exp-period {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--white);
+    background: var(--accent);
+    padding: 2px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .exp-item.past .exp-period {
+    background: var(--slate-100);
+    color: var(--slate-500);
+  }
+  .exp-company {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .exp-company span {
+    font-style: italic;
+    font-size: 10.5px;
+    color: var(--slate-300);
+  }
+  .exp-bullets {
+    margin-top: 8px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .exp-bullets li {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    padding-left: 13px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .exp-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* ── PAST ROLES TABLE ── */
+  .past-roles {
+    margin-top: 6px;
+  }
+  .past-role-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--slate-100);
+    gap: 8px;
+  }
+  .past-role-row:last-child { border-bottom: none; }
+  .past-role-co {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .past-role-pos {
+    font-size: 11px;
+    color: var(--text-muted);
+    flex: 1;
+    padding: 0 8px;
+  }
+  .past-role-yr {
+    font-size: 10.5px;
+    color: var(--slate-300);
+    white-space: nowrap;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--slate-100); margin: 24px 0; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="header">
+    <div class="avatar-wrap">
+      <!-- Profile photo placeholder – replace src with actual image path -->
+      <div class="avatar-placeholder">MK</div>
+    </div>
+
+    <div class="header-info">
+      <div class="header-name">Muhammad Khalid Salam</div>
+      <div class="header-title">Senior Software Consultant &amp; Solution Architect</div>
+      <div class="header-contacts">
+        <span class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          18th November Street, Azaiba, Muscat, Oman
+        </span>
+        <span class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          +968 9855 7017
+        </span>
+        <span class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:khalid.salam1@gmail.com">khalid.salam1@gmail.com</a>
+        </span>
+        <span class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <a href="https://linkedin.com" target="_blank">linkedin.com/in/khalidsalam</a>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════ BODY ══════════ -->
+  <div class="body">
+
+    <!-- ── LEFT COLUMN ── -->
+    <aside class="left">
+
+      <!-- Core Expertise -->
+      <div class="section">
+        <div class="section-title">Core Expertise</div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Backend</div>
+          <div class="skill-tags">
+            <span class="tag accent">ASP.NET Core</span>
+            <span class="tag accent">C#</span>
+            <span class="tag">Web API</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Entity Framework Core</span>
+            <span class="tag">Dapper ORM</span>
+            <span class="tag">SignalR</span>
+            <span class="tag">Hangfire</span>
+            <span class="tag">Windows Services</span>
+            <span class="tag">LINQ</span>
+            <span class="tag">VB.NET</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Frontend</div>
+          <div class="skill-tags">
+            <span class="tag accent">Angular</span>
+            <span class="tag">AngularJS</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">jQuery</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Bootstrap</span>
+            <span class="tag">Blazor</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Databases</div>
+          <div class="skill-tags">
+            <span class="tag accent">SQL Server</span>
+            <span class="tag accent">PostgreSQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Oracle</span>
+            <span class="tag">RavenDB</span>
+            <span class="tag">SSIS</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Mobile</div>
+          <div class="skill-tags">
+            <span class="tag gold">Flutter</span>
+            <span class="tag">Riverpod</span>
+            <span class="tag">GoRouter</span>
+            <span class="tag">Dio</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Security &amp; Auth</div>
+          <div class="skill-tags">
+            <span class="tag">JWT</span>
+            <span class="tag">OAuth</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Integrations</div>
+          <div class="skill-tags">
+            <span class="tag">WhatsApp API</span>
+            <span class="tag">SMS Gateway</span>
+            <span class="tag">Payment Gateways</span>
+            <span class="tag">IVR Calls</span>
+            <span class="tag">e-Invoice</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Reporting</div>
+          <div class="skill-tags">
+            <span class="tag">Crystal Reports</span>
+            <span class="tag">SSRS</span>
+            <span class="tag">Highcharts.js</span>
+            <span class="tag">Apexcharts.js</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Platforms -->
+      <div class="section">
+        <div class="section-title">Tools &amp; Platforms</div>
+        <div class="tools-list">
+          <span class="tag">GitHub</span>
+          <span class="tag">SVN</span>
+          <span class="tag">TFS</span>
+          <span class="tag">Asana</span>
+          <span class="tag">Slack</span>
+          <span class="tag">Mantis</span>
+          <span class="tag">IIS</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">OpenCart</span>
+        </div>
+      </div>
+
+      <!-- Competencies -->
+      <div class="section">
+        <div class="section-title">Competencies</div>
+        <div class="tools-list">
+          <span class="tag gold">Solution Architecture</span>
+          <span class="tag gold">System Integration</span>
+          <span class="tag">API Architecture</span>
+          <span class="tag">Performance Optimization</span>
+          <span class="tag">Code Review</span>
+          <span class="tag">Team Leadership</span>
+          <span class="tag">Stakeholder Management</span>
+          <span class="tag">Sprint Planning</span>
+          <span class="tag">IIS Management</span>
+          <span class="tag">Troubleshooting</span>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-degree">BS, Computer Science</div>
+          <div class="edu-school">Institute of Business &amp; Technology (IBT), Karachi</div>
+          <div class="edu-year">2009 – 2013</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Advanced Diploma in Software Engineering</div>
+          <div class="edu-school">Aptech Computer Worldwide, Karachi</div>
+          <div class="edu-year">2005 – 2008</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Intermediate, Commerce</div>
+          <div class="edu-school">Ayesha Bawany College, Karachi</div>
+          <div class="edu-year">2006 – 2008</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Matriculation, Computer Science</div>
+          <div class="edu-school">Jennings Secondary School, Karachi</div>
+          <div class="edu-year">2005</div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── RIGHT COLUMN ── -->
+    <main class="right">
+
+      <!-- Professional Summary -->
+      <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <p class="summary-text">
+          Results-driven <strong>Senior Software Consultant</strong> with over <strong>14 years of experience</strong>
+          delivering end-to-end software solutions across CRM, ERP, and enterprise platforms. Skilled in
+          <strong>full-stack development</strong>, <strong>API architecture</strong>, and <strong>system integration</strong>,
+          with deep expertise in ASP.NET Core, Angular, and SQL Server. Adept at bridging technical and business
+          domains — translating client requirements into scalable, high-performing systems. Proven track record of
+          leading cross-functional teams, optimizing development processes, and delivering impactful solutions for
+          <strong>government institutions</strong> and <strong>international clients</strong>.
+        </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Experience -->
+      <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <!-- MoI -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Senior Software Consultant</div>
+            <div class="exp-period">Jun 2024 – Present</div>
+          </div>
+          <div class="exp-company">
+            Ministry of Interior — Muscat, Oman
+            <span>(Outsourced by Bawadi Mouj Muscat – Fastech)</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Leading development and enhancement of key digital systems: Ministry Website, Staff Portal, Project Management System, and Asset Management Platform.</li>
+            <li>Providing technical strategy, solution architecture, and hands-on problem-solving to ensure scalability and alignment with digital transformation goals.</li>
+            <li>Collaborating with cross-departmental stakeholders to gather requirements, plan deliverables, and oversee smooth project execution.</li>
+            <li>Guiding backend and integration development with a focus on performance optimization, data consistency, and secure system communication.</li>
+            <li>Driving continuous improvement through mentoring and adoption of best practices in software design and delivery.</li>
+          </ul>
+        </div>
+
+        <!-- Tech Plex -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Senior Software Engineer</div>
+            <div class="exp-period">Aug 2023 – Jun 2024</div>
+          </div>
+          <div class="exp-company">Technology Plex — Karachi, Pakistan</div>
+          <ul class="exp-bullets">
+            <li>Served as key backend engineer developing, maintaining, and optimizing enterprise-grade applications across multiple international projects.</li>
+            <li>Contributed to architectural design, API development, and performance improvements to ensure reliability and scalability of deployed systems.</li>
+            <li>Engaged directly with international clients to gather requirements, propose technical solutions, and deliver cost-effective implementations.</li>
+            <li>Played an active role in code reviews, team mentorship, and continuous improvement initiatives.</li>
+          </ul>
+        </div>
+
+        <!-- TPL Trakker -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Team Lead / Senior Software Engineer</div>
+            <div class="exp-period">Dec 2017 – Aug 2023</div>
+          </div>
+          <div class="exp-company">TPL Trakker Pvt. Ltd. — Karachi, Pakistan</div>
+          <ul class="exp-bullets">
+            <li>Led development and delivery of multiple projects for Pakistan's leading vehicle tracking provider, serving over 100 clients with 24/7 operations.</li>
+            <li>Managed end-to-end project lifecycle including requirement gathering, solution design, task planning, and sprint management using Asana.</li>
+            <li>Key liaison between backend/mobile development teams and QA, ensuring clear communication and successful releases.</li>
+            <li>Drove automation initiatives and system integrations: IVR Calls, Payment Gateways, WhatsApp API, SMS Gateway, and e-Invoice mechanisms.</li>
+            <li>Delivered client demos, managed project backlogs, and generated dashboards and MIS reports for stakeholders.</li>
+          </ul>
+        </div>
+
+        <!-- Technology Ally -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <div class="exp-role">Senior Software Engineer</div>
+            <div class="exp-period">Aug 2013 – Aug 2017</div>
+          </div>
+          <div class="exp-company">Technology Ally — Karachi, Pakistan</div>
+          <ul class="exp-bullets">
+            <li>Developed and maintained custom web and mobile solutions for U.S.-based clients across marketing, healthcare, and non-profit sectors.</li>
+            <li>Designed and implemented backend services, APIs, and dashboards ensuring performance, security, and maintainability.</li>
+            <li>Collaborated directly with overseas clients and project managers to define system specifications and deliver tailored business solutions.</li>
+            <li>Mentored junior developers and supported cross-functional coordination between design, QA, and deployment teams.</li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Past Roles -->
+        <div class="section-title">Earlier Roles</div>
+        <div class="past-roles">
+          <div class="past-role-row">
+            <div class="past-role-co">TPL Direct Insurance</div>
+            <div class="past-role-pos">Software Engineer</div>
+            <div class="past-role-yr">Nov 2012 – Aug 2013</div>
+          </div>
+          <div class="past-role-row">
+            <div class="past-role-co">Matech Consulting &amp; Outsourcing</div>
+            <div class="past-role-pos">Software Engineer</div>
+            <div class="past-role-yr">Jun 2011 – Oct 2012</div>
+          </div>
+          <div class="past-role-row">
+            <div class="past-role-co">Enterprise Team</div>
+            <div class="past-role-pos">Software Engineer</div>
+            <div class="past-role-yr">Apr 2010 – Apr 2011</div>
+          </div>
+          <div class="past-role-row">
+            <div class="past-role-co">Millac Foods Pvt. Ltd.</div>
+            <div class="past-role-pos">Software Engineer</div>
+            <div class="past-role-yr">Feb 2008 – Mar 2010</div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div><!-- /body -->
+
+</div><!-- /page -->
+</body>
+</html>
